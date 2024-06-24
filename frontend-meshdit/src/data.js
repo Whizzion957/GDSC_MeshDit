@@ -71,4 +71,12 @@ export const sample_foods = [
         tags: ['Snack', 'Pasta', 'FastFood'],
         type: 'Veg'
     }
-]
+];
+
+export const sample_tags = [
+    {name: 'All', count: 6},
+    {name: 'FastFood', count:5},
+    {name: 'Lunch', count:2},
+    {name: 'Snack', count:4},
+    {name: 'SlowFood', count:1},
+];
