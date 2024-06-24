@@ -1,6 +1,8 @@
 import React from 'react'
 import classes from './thumbnails.module.css'
 import { Link } from 'react-router-dom'
+import StarRating from '../StarRating/StarRating'
+import Price from '../Price/Price'
 
 export default function Thumbnails({foods}) {
   return (
@@ -11,14 +13,31 @@ export default function Thumbnails({foods}) {
                     <Link to={`/foods/${food.id}`}>
                         <img className={classes.image} src= {`/foods/${food.imageURL}`}
                         alt={food.name} />
-                    </Link>
-                    <Link>
-                        <div className={classes.content}>
-                            <div className={classes.name}>{food.name}</div>
-                            <span className={`${classes.favourite} ${food.favourite ? '' : classes.not}`}>
-                                
-                            </span> 
+                    <div className={classes.content}>
+                        <div className={classes.name}>{food.name}</div>
+                        <span className={`${classes.favourite} ${food.favourite ? '' : classes.not}`}>
+                        ❤
+                        </span> 
+                        <div className={classes.stars}>
+                            <StarRating stars={food.stars}/>
                         </div>
+                        <div className={classes.product_item_footer}>
+                            <div className={classes.origins}>
+                                {
+                                    food.origins.map(origin=> 
+                                        <span key={origin}>{origin}</span>
+                                    )
+                                }
+                            </div>
+                            <div className={classes.cook_time}>
+                                <span>🕒</span>
+                                {food.cookTime}
+                            </div>
+                        </div>
+                        <div className={classes.price}>
+                            <Price price={food.price}/>
+                        </div>
+                    </div>
                     </Link>
                 </li>
             )

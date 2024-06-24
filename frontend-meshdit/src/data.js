@@ -16,7 +16,7 @@ export const sample_foods = [
         name: 'Meatball',
         price: 349,
         cookTime: '20-30',
-        favourite: false,
+        favourite: true,
         origins: ['persia', 'middle-east', 'china'],
         stars: 5,
         imageURL: 'meatball.jpg',
