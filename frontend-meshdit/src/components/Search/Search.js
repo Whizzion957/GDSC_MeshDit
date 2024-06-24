@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from './search.module.css'
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function Search() {
     const [term, setTerm] = useState('');
     const navigate = useNavigate();
-    const {serachTerm} =useParams();
+    const {searchTerm} =useParams();
+
+    useEffect(() => {
+      setTerm(searchTerm ?? '')
+    }, [searchTerm]);
 
     const search = async() => {
         term? navigate('/search/' + term) : navigate('/');
@@ -13,7 +17,7 @@ export default function Search() {
   return (
     <div className={classes.container}>
         <input type='text' placeholder='Seach FoodFat!!' onChange={e=> setTerm(e.target.value)} onKeyUp = {e => e.key==='Enter' && search()}
-        defaultValue={serachTerm} />
+        value={term} />
         <button onClick={search}>Search</button>
     </div>
   )
