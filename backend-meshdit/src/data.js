@@ -80,3 +80,22 @@ export const sample_tags = [
     {name: 'Snack', count:4},
     {name: 'SlowFood', count:1},
 ];
+
+export const sample_users = [
+    {
+        id: 1,
+        name: 'Aadit Kumar Sahoo',
+        email: 'aaditkumarsahoo@gmail.com',
+        password: '114920',
+        address: 'Roorkee, Uttarakhand',
+        isAdmin: true,
+    },
+    {
+        id: 2,
+        name: 'Srita Shukla',
+        email: 'srita_s@ee.iitr.ac.in',
+        password: '19189201',
+        address: 'Roorkee, Uttarakhand',
+        isAdmin: false,
+    },
+];
