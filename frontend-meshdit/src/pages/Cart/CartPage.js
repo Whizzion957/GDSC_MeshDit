@@ -15,12 +15,12 @@ export default function CartPage() {
      {cart.items.length===0 ? (<NotFound message='Cart Page is Empty!!'/>) : ( 
      <div className={classes.container}>
       <ul className={classes.list}>
-        {cart.items.map(item => <li key={item.food.id}>
+        {cart.items.map(item => (<li key={item.food.id}>
           <div>
-            <img src={`/foods/${item.food.imageURL}`} alt={item.food.name}/>
+            <img src={`${item.food.imageURL}`} alt={item.food.name}/>
           </div>
           <div>
-            <Link to={`/foods/${item.food.id}`}>{item.food.name}</Link>
+            <Link to={`/food/${item.food.id}`}>{item.food.name}</Link>
           </div>
 
           <div>
@@ -44,7 +44,7 @@ export default function CartPage() {
           <div>
             <button className={classes.remove_button} onClick={()=>removeFromCart(item.food.id)}>Remove</button>
           </div>
-        </li>)}
+        </li>))}
       </ul>
       <div className={classes.checkout}>
         <div>

@@ -12,7 +12,7 @@ export default function Search() {
     }, [searchTerm]);
 
     const search = async() => {
-        term? navigate('/search/' + term) : navigate('/');
+        term ? navigate('/search/' + term) : navigate('/');
     };
   return (
     <div className={classes.container}>
@@ -20,5 +20,5 @@ export default function Search() {
         value={term} />
         <button onClick={search}>Search</button>
     </div>
-  )
+  );
 }

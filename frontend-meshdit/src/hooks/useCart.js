@@ -52,7 +52,7 @@ export default function CartProvider({children}) {
     };
 
     setCartItems (
-        cartItems.map(item => (item.food.id === food.id? changedCartItem:item))
+        cartItems.map(item => (item.food.id === food.id ? changedCartItem : item))
     );
   };
 

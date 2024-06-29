@@ -8,10 +8,10 @@ export default function Thumbnails({foods}) {
   return (
     <ul className={classes.list}>
         {
-            foods.map ( food => 
+            foods.map ( food => (
                 <li key={food.id}>
-                    <Link to={`/foods/${food.id}`}>
-                        <img className={classes.image} src= {`/foods/${food.imageURL}`}
+                    <Link to={`/food/${food.id}`}>
+                        <img className={classes.image} src= {`${food.imageURL}`}
                         alt={food.name} />
                     <div className={classes.content}>
                         <div className={classes.name}>{food.name}</div>
@@ -24,9 +24,9 @@ export default function Thumbnails({foods}) {
                         <div className={classes.product_item_footer}>
                             <div className={classes.origins}>
                                 {
-                                    food.origins.map(origin=> 
+                                    food.origins.map(origin => (
                                         <span key={origin}>{origin}</span>
-                                    )
+                                    ))
                                 }
                             </div>
                             <div className={classes.cook_time}>
@@ -40,8 +40,8 @@ export default function Thumbnails({foods}) {
                     </div>
                     </Link>
                 </li>
-            )
+            ))
         }
     </ul>
-  )
+  );
 }

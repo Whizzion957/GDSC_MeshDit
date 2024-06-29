@@ -8,7 +8,7 @@ export default function NotFound({message, linkRoute, linkText}) {
         {message}
         <Link to={linkRoute}>{linkText}</Link>
     </div>
-  )
+  );
 }
 
 NotFound.defaultProps = {

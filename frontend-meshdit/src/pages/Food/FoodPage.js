@@ -25,7 +25,7 @@ export default function FoodPage() {
     <>
         {!food ? (<NotFound message='Food Not Found!!' linkText='Back To Homepage' />) : ( 
         <div className={classes.container}>
-            <img className={classes.image} src={`/foods/${food.imageURL}`} alt={food.name}/>
+            <img className={classes.image} src={`${food.imageURL}`} alt={food.name}/>
             <div className={classes.details}>
                 <div className={classes.header}>
                     <span className={classes.name}>{food.name}</span>
