@@ -7,3 +7,16 @@ export const createOrder = async order => {
     } 
     catch(err) {}
 };
+
+export const getNewOrderForCurrentUser = async () => {
+    const { data } = await axios.get('/api/orders/newOrderForCurrentUser');
+    return data;
+  };
+
+export const pay = async paymentID => {
+    try {
+        const { data } = await axios.put('/api/orders/pay', { paymentID });
+        return data;
+    }
+    catch (error) {}
+};

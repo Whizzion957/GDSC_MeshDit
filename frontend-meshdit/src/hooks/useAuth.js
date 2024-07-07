@@ -35,6 +35,10 @@ export const AuthProvider = ({ children }) => {
         toast.success('Logout Successful');
     };
 
+    const updateProfile = async user => {
+        
+    }
+
     return (
         <AuthContext.Provider value={{user, login, register, logout}}>
             {children}
