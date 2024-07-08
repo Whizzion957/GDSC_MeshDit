@@ -15,4 +15,4 @@ NotFound.defaultProps = {
     message: 'Nothing Found!!',
     linkRoute: '/',
     linkText: 'Go To HomePage',
-}
+};

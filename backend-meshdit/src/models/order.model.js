@@ -28,25 +28,26 @@ OrderItemSchema.pre('validate', function(next) {
     next();
 });
 
-const orderSchema = new Schema({
-    name: {type: String, required: true},
-    address: {type: String, required: true},
-    addressLatLng: {type: LatLngSchema, required: true},
-    paymentID: {type: String},
-    totalPrice: {type: Number, required: true},
-    items: {type: [OrderItemSchema], required: true},
-    status: {type: String, default: OrderStatus.NEW},
-    user: {type: Schema.Types.ObjectId, required: true},
-},
-{
-    timestamps: true,
-    toJSON: {
-        virtuals: true,
+const orderSchema = new Schema(
+    {
+        name: {type: String, required: true},
+        address: {type: String, required: true},
+        addressLatLng: {type: LatLngSchema, required: true},
+        paymentID: {type: String},
+        totalPrice: {type: Number, required: true},
+        items: {type: [OrderItemSchema], required: true},
+        status: {type: String, default: OrderStatus.NEW},
+        user: {type: Schema.Types.ObjectId, required: true, ref: 'user' },
     },
-    toObject: {
-        virtuals: true,
-    },
-}
+    {
+        timestamps: true,
+        toJSON: {
+            virtuals: true,
+        },
+        toObject: {
+            virtuals: true,
+        },
+    }
 );
 
 export const OrderModel = model('order', orderSchema);

@@ -17,10 +17,9 @@ export default function Header() {
             </Link>
             <nav>
                 <ul>
-                    {
-                        user?
+                    { user ?
                         (<li className={classes.menu_container}>
-                            <Link to="/profile">{user.name}</Link>
+                            <Link to="/dashboard">{user.name}</Link>
                             <div className={classes.menu}>
                                 <Link to="/profile">Profile</Link>
                                 <Link to="/orders">Orders</Link>
@@ -32,8 +31,12 @@ export default function Header() {
 
                     <li>
                         <Link to="/cart">
-                        Cart
-                        {cart.totalCount>0 && <span className={classes.cart_count}>{cart.totalCount}</span>}
+                            Cart
+                            { cart.totalCount > 0 && 
+                                (<span className={classes.cart_count}>
+                                    {cart.totalCount}
+                                </span>)
+                            }
                         </Link>
                     </li>
                 </ul>

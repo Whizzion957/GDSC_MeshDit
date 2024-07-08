@@ -30,7 +30,7 @@ function Buttons({order}) {
             purchase_units: [
                 {
                     amount : {
-                        currency_code: 'INR',
+                        currency_code: 'USD',
                         value: order.totalPrice,
                     },
                 },

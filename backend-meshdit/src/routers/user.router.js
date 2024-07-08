@@ -6,18 +6,16 @@ import { UserModel } from "../models/user.model.js";
 import auth from '../middleware/auth.mid.js';
 import bcrypt from 'bcryptjs';
 const PASSWORD_HASH_SALT_ROUNDS = 10;
-
+import admin from '../middleware/admin.mid.js';
 const router = Router();
 
 router.post('/login', handler(async (req,res) => {
     const {email, password} = req.body;
     const user = await UserModel.findOne({email});
-
     if(user && (await bcrypt.compare(password, user.password))) {
         res.send(generateTokenResponse(user));
         return;
     }
-
     res.status(BAD_REQUEST).send('Username or Password is Invalid');
 }));
 
@@ -28,7 +26,6 @@ router.post('/register', handler(async (req, res) => {
         req.status(BAD_REQUEST).send('User already exists, please login!!');
         return;
     }
-
     const hashedPassword = await bcrypt.hash(password, PASSWORD_HASH_SALT_ROUNDS);
     const newUser = {
         name,
@@ -36,7 +33,6 @@ router.post('/register', handler(async (req, res) => {
         password: hashedPassword,
         address,
     };
-
     const result = await UserModel.create(newUser);
     res.send(generateTokenResponse(result));
 }));
@@ -51,6 +47,74 @@ router.put('/updateProfile', auth, handler(async (req,res) => {
     res.send(generateTokenResponse(user));
 }));
 
+router.put('/changePassword', auth, handler(async (req,res) => {
+    const {currentPassword, newPassword } =req.body;
+    const user = await UserModel.findById(req.user.id);
+    if(!user) {
+        res.status(BAD_REQUEST).send('Change Password Failed!');
+        return;
+    }
+    const equal = await bcrypt.compare(currentPassword, user.password);
+    if(!equal) {
+        res.status(BAD_REQUEST).send('Current Password is Incorrect!');
+        return;
+    }
+    user.password = await bcrypt.hash(newPassword, PASSWORD_HASH_SALT_ROUNDS);
+    await user.save();
+    res.send();
+}))
+
+router.get(
+    '/getall/:searchTerm?',
+    admin,
+    handler(async (req, res) => {
+      const { searchTerm } = req.params;
+      const filter = searchTerm ? { name: { $regex: new RegExp(searchTerm, 'i') } } : {};
+      const users = await UserModel.find(filter, { password: 0 });
+      res.send(users);
+    })
+  );
+
+router.put(
+'/toggleBlock/:userID',
+admin,
+handler(async (req, res) => {
+        const { userID } = req.params;
+        if (userID === req.user.id) {
+        res.status(BAD_REQUEST).send("Can't block yourself!");
+        return;
+        }
+        const user = await UserModel.findById(userID);
+        user.isBlocked = !user.isBlocked;
+        user.save();
+        res.send(user.isBlocked);
+    })
+);
+
+router.get(
+'/getByID/:userID',
+admin,
+handler(async (req, res) => {
+    const { userID } = req.params;
+    const user = await UserModel.findById(userID, { password: 0 });
+    res.send(user);
+})
+);
+
+router.put(
+'/update',
+admin,
+handler(async (req, res) => {
+    const { id, name, email, address, isAdmin } = req.body;
+    await UserModel.findByIdAndUpdate(id, {
+    name,
+    email,
+    address,
+    isAdmin,
+    });
+    res.send();
+})
+);
 
 
 const generateTokenResponse = user => {

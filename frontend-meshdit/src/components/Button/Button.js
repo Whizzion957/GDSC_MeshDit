@@ -8,7 +8,7 @@ export default function Button({ type, text, onClick, color, backgroundColor, fo
             </button>
         </div>
     );
-};
+}
 
 Button.defaultProps = {
     type: 'button',

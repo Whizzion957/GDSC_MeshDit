@@ -6,7 +6,7 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-
+import { EMAIL } from '../../constants/patterns';
 
 export default function RegisterPage() {
     const auth = useAuth();
@@ -32,12 +32,12 @@ export default function RegisterPage() {
 
                 <Input type='text' label='Name' {...register('name', {required: true, minLength: 5,})} error={errors.name} />
 
-                <Input type='email' label='Email' {...register('email', {required: true, pattern: {value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,63}$/i, message: 'Email Is Not Valid'},})} error={errors.email} />
+                <Input type='email' label='Email' {...register('email', {required: true, pattern: EMAIL,})} error={errors.email} />
 
                 <Input type="password" label='Password' {...register('password', {required:true, minLength: 5,})} error={errors.password} />
 
                 <Input type='password' label='Confirm Password' {...register('confirmPassword', {required: true, validate: value => value !== getValues('password') ? 'Passwords Do Not Match' : true,})} error={errors.confirmPassword} />
-
+ 
                 <Input type='text' label='Adress' {...register('address', {required: true, minLength: 10,})} error={errors.address} />
 
                 <Button type='submit' text='Register' />

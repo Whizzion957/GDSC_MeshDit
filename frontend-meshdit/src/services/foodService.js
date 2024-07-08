@@ -25,3 +25,16 @@ export const getByID = async foodID => {
     const {data} = await axios.get('/api/foods/' + foodID);
     return data;
 };
+
+export async function deleteByID(foodID) {
+    await axios.delete('/api/foods/' + foodID);
+  }
+  
+  export async function update(food) {
+    await axios.put('/api/foods', food);
+  }
+  
+  export async function add(food) {
+    const { data } = await axios.post('/api/foods', food);
+    return data;
+  }

@@ -43,6 +43,7 @@ export default function CartProvider({children}) {
     const filteredCartItems = cartItems.filter(item => item.food.id !== foodID);
     setCartItems(filteredCartItems);
   };
+
   const changeQuantity = (cartItem, newQuantity) => {
     const {food} =cartItem;
     const changedCartItem = {
@@ -50,7 +51,6 @@ export default function CartProvider({children}) {
         quantity: newQuantity,
         price: food.price*newQuantity,
     };
-
     setCartItems (
         cartItems.map(item => (item.food.id === food.id ? changedCartItem : item))
     );
@@ -78,7 +78,7 @@ export default function CartProvider({children}) {
     <CartContext.Provider value={{cart:{items:cartItems, totalPrice, totalCount}, removeFromCart, changeQuantity, addToCart, clearCart}}>
         {children}
     </CartContext.Provider>
-  )
+  );
 }
 
 export const useCart = () => useContext(CartContext);

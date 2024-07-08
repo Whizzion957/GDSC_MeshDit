@@ -5,7 +5,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { createOrder } from '../../services/orderService';
+import { createOrder, getNewOrderForCurrentUser } from '../../services/orderService';
 import Title from '../../components/Title/Title';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
@@ -24,8 +24,13 @@ export default function CheckoutPage() {
             toast.warning('Please select your location on the map');
             return;
         }
-        await createOrder({...order, name: data.name, address: data.address});
-        navigate('/payment');
+        try {
+            await createOrder({...order, name: data.name, address: data.address});
+            navigate('/payment');
+        }
+        catch (err) {
+            toast.error('Failed to create order. Please try again.');
+        }
     };
 
   return (

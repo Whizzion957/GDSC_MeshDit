@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react'
 import classes from './search.module.css'
 import { useNavigate, useParams } from 'react-router-dom';
 
-export default function Search() {
+Search.defaultProps = {
+  searchRoute: '/search/',
+  defaultRoute: '/',
+  placeholder: 'Search FoodFat!!'
+}; 
+
+export default function Search({searchRoute, defaultRoute, margin, placeholder}) {
     const [term, setTerm] = useState('');
     const navigate = useNavigate();
     const {searchTerm} =useParams();
@@ -12,11 +18,11 @@ export default function Search() {
     }, [searchTerm]);
 
     const search = async() => {
-        term ? navigate('/search/' + term) : navigate('/');
+        term ? navigate(searchRoute + term) : navigate(defaultRoute);
     };
   return (
-    <div className={classes.container}>
-        <input type='text' placeholder='Seach FoodFat!!' onChange={e=> setTerm(e.target.value)} onKeyUp = {e => e.key==='Enter' && search()}
+    <div className={classes.container} style={{margin}}>
+        <input type='text' placeholder={placeholder} onChange={e=> setTerm(e.target.value)} onKeyUp = {e => e.key==='Enter' && search()}
         value={term} />
         <button onClick={search}>Search</button>
     </div>

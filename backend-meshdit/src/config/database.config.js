@@ -5,7 +5,6 @@ import { sample_users } from "../data.js";
 import { sample_foods } from "../data.js";
 import bcrypt from "bcryptjs";
 const PASSWORD_HASH_SALT_ROUNDS = 10;
-
 set('strictQuery', true);
 
 export const dbconnect = async () => {
@@ -34,7 +33,6 @@ async function seedUsers() {
         user.password = await bcrypt.hash(user.password, PASSWORD_HASH_SALT_ROUNDS);
         await UserModel.create(user);
     }
-
     console.log('Users seed is done!');
 }
 

@@ -6,7 +6,6 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(userService.getUser());
-
     const login = async (email, password) => {
         try {
             const user = await userService.login(email, password);
@@ -17,7 +16,6 @@ export const AuthProvider = ({ children }) => {
             toast.error(err.response.data);
         }
     };
-
     const register = async data => {
         try {
             const user = await userService.register(data);
@@ -36,11 +34,24 @@ export const AuthProvider = ({ children }) => {
     };
 
     const updateProfile = async user => {
-        
+        const updatedUser = await userService.updateProfile(user);
+        toast.success('Profile Update was Successful');
+        if (updatedUser) setUser(updatedUser);
     }
 
+    const changePassword = async passwords => {
+        try {
+            await userService.changePassword(passwords);
+            logout();
+            toast.success('Password Changed Successfully, PLease Login Again!!');
+        }
+        catch (error) {
+            toast.error(error.response.data);
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{user, login, register, logout}}>
+        <AuthContext.Provider value={{user, login, register, logout, updateProfile, changePassword}}>
             {children}
         </AuthContext.Provider>
     );
