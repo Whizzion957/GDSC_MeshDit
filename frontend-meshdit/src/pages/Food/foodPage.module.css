@@ -1,10 +1,10 @@
+
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 3rem;
-
 }
 
 .container > * {
@@ -59,10 +59,12 @@
 
 .origins > span {
     padding: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 800;
     margin: 0.5rem 0.5rem 0 0;
-    background-color: aliceblue;
+    background-color: #ffd1b3;
     border-radius: 2rem;
+    color: #d94e4e;
 }
 
 .cook_time {
@@ -83,20 +85,44 @@
 
 .price::before {
     content: 'Price: ';
-    color: darkgrey;
+    color: #d94e4e;
+    font-weight: 800;
 }
 
 .container button {
     color: white;
-    background-color: #e72929;
+    background: linear-gradient(180deg, #ff7e5f, #e72929);
     border: none;
     font-size: 1.2rem;
     padding: 1rem;
     border-radius: 10rem;
     outline: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease-in-out; 
+    cursor: pointer; 
 }
 
 .container button:hover {
+    background: linear-gradient(45deg, #d94e4e, #ff7e5f);
     opacity: 0.9;
+    transform: scale(1.05);
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container button:hover {
+    background: linear-gradient(90deg, #feb47b, #e72929, #feb47b);
+    background-size: 200% 200%;
+    animation: gradient-animation 2s ease infinite;
+    opacity: 1;
     cursor: pointer;
 }

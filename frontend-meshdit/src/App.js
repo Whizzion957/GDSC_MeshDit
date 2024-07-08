@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
 import { useLoading } from "./hooks/useLoading";
 import { setLoadingInterceptor } from "./Interceptors/loadingInterceptor";
-
+import './App.css';
 
 function App() {
   const { showLoading, hideLoading} = useLoading();
@@ -17,7 +17,9 @@ function App() {
     <>
       <Loading />
       <Header />
-      <AppRoutes />
+      <div className='container'>
+        <AppRoutes />
+      </div>
     </>
   );
 }

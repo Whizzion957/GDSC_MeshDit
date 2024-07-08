@@ -45,25 +45,55 @@
     flex-basis: 18%;
 }
 
+.foodname {
+    font-size: 1.1rem;
+    transition: color 0.5s ease;
+}
+
+.foodname:hover {
+    color: #e72929;
+}
+
+
 .list li select {
     width: 3rem;
     outline: none;
     border: none;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #feb47b;
     font-size: 1.1rem;
-    font-weight: 100;
+    font-weight: 200;
 }
 
 .list .remove_button {
     border-radius: 1rem;
     border: none;
     padding: 0.5rem;
-    color: #e72729;
-    opacity: 0.7;
+    color: white;
     outline: none;
+    background: linear-gradient(180deg, #ff7e5f, #e72929);
+    transition: transform 0.3s ease, background 0.3s ease-in-out;
 }
 
 .list .remove_button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.list .remove_button:hover {
+    background: linear-gradient(90deg, #feb47b, #e72929, #feb47b);
+    background-size: 200% 200%;
+    animation: gradient-animation 2s ease infinite;
     opacity: 1;
     cursor: pointer;
 }
@@ -98,27 +128,49 @@
 
 .checkout .foods_count::before {
     content: 'Count: ';
-    color: grey;
+    font-weight: 600;
+    color: #e72929;
 }
 
 .checkout .total_price::before {
     content: 'Price: ';
-    color: grey;
+    color: #e72929;
+    font-weight: 600;
 }
 
 .checkout a {
     padding: 1rem;
     color: white;
-    background: #e72929;
+    background: linear-gradient(180deg, #ff7e5f, #e72929 );
     display: block;
     width: 99%;
     border-radius: 1rem;
     text-align: center;
     justify-self: center;
-
+    transition: transform 0.3s ease, background 0.3s ease-in-out;
 }
 
 .checkout a:hover {
-    opacity: 0.8;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.checkout a:hover {
+    background: linear-gradient(90deg, #feb47b, #e72929, #feb47b);
+    background-size: 200% 200%;
+    animation: gradient-animation 2s ease infinite;
+    opacity: 1;
     cursor: pointer;
 }

@@ -9,7 +9,7 @@ import NotFound from '../../components/NotFound/NotFound';
 
 export default function CartPage() {
   const {cart, removeFromCart, changeQuantity} = useCart();
-  return (
+  return ( 
     <>
      <Title title='Cart Page' margin='1.5rem 0 0 2.5rem' />
      {cart.items.length===0 ? (<NotFound message='Cart Page is Empty!!'/>) : ( 
@@ -20,7 +20,7 @@ export default function CartPage() {
             <img src={`${item.food.imageURL}`} alt={item.food.name}/>
           </div>
           <div>
-            <Link to={`/food/${item.food.id}`}>{item.food.name}</Link>
+            <Link to={`/food/${item.food.id}`} className={classes.foodname}>{item.food.name}</Link>
           </div>
 
           <div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import classes from './price.module.css';
 
 export default function Price({price,local, currency}) {
     const formatPrice = () => 
@@ -7,7 +8,7 @@ export default function Price({price,local, currency}) {
             currency,
         }).format(price);
   return (
-    <span>{formatPrice()}</span>
+    <span className={classes.price}>{formatPrice()}</span>
   )
 }
 

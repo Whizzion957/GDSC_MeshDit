@@ -50,7 +50,6 @@ export default function OrderTrackPage() {
               </div>
             )}
           </div>
-
           <OrderItemsList order={order} />
         </div>
 

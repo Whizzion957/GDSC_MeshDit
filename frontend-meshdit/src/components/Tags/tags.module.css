@@ -4,10 +4,30 @@
 }
 
 .container a{
-    background-color: #f0f0f0;
+    background-color: #ffd1b3;
     padding: 0.3rem 1rem;
     margin: 0.2rem 0.15rem;
     border-radius: 10rem;
     font-weight: 600;
-    color: blue;
+    color: #d94e4e;
+    transition: background 0.3s ease-in-out;
+}
+
+.container a:hover {
+    background: linear-gradient(45deg, #ffd1b3, #ff7e5f, #feb47b);
+    background-size: 200% 200%;
+    animation: gradient-animation 2s ease infinite;
+}
+
+/* Gradient animation */
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

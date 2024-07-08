@@ -44,7 +44,7 @@ export default function LoginPage() {
                 <Button type='submit' text='Login' />
                 <div className={classes.register}>
                     New User? &nbsp;
-                    <Link to={`/register?${returnURL ? '?returnURL=' + returnURL : ''}`}>
+                    <Link to={`/register?${returnURL ? '?returnURL=' + returnURL : ''}`} className={classes.link}>
                         Register Here
                     </Link>
                 </div>

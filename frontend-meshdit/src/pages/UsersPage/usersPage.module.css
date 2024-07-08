@@ -8,6 +8,7 @@
   .list {
     width: 100%;
     max-width: 50rem;
+    color: darkred;
   }
   
   .list_item {
@@ -15,8 +16,20 @@
     grid-template-columns: 20% 35% 20% 10% 15%;
     gap: 1%;
     align-items: center;
-    border-bottom: 1px solid whitesmoke;
+    border-bottom: 1px solid #ffd1b3;
     min-height: 3rem;
+  }
+  .list_item span {
+    color: black;
+  }
+
+  .link {
+    color: #e72929;
+    transition: color 0.3s ease;
+  }
+
+  .link:hover {
+    color: darkred;
   }
   
   .list_item > * {

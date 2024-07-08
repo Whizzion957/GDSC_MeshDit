@@ -18,7 +18,7 @@ export default function ChangePassword() {
             <Input type='password' label='Current Password' {...register('currentPassword', {required: true,})} error={errors.currentPassword} />
             <Input type='password' label='New Password' {...register('newPassword', {required: true, minLength: 5,})} error={errors.newPassword} />
             <Input type='password' label='Confirm Password' {...register('confirmNewPassword', {required: true, validate: value => value !== getValues('newPassword') ? 'Passwords Do Not Match' : true,})} error={errors.confirmNewPassword} />
-            <Button type='submit' text='Change'/>
+            <Button type='submit' text='Change' backgroundColors={['#ff0000', '#800000']}/>
         </form>
     </div>
   )

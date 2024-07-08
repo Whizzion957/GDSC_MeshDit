@@ -20,7 +20,7 @@ export default function ProfilePage() {
             <form onSubmit={handleSubmit(submit)} >
                 <Input defaultValue={user.name} type='text' label='Name' {...register('name', {required: true, minLength:5})} error={errors.name} />
                 <Input defaultValue={user.address} type='text' label='Address' {...register('address', {required: true, minLength:10})} error={errors.address}/>
-                <Button type='submit' text='Update' backgroundColor='#009e84'/>
+                <Button type='submit' text='Update' backgroundColors={['#ff0000', '#800000']} />
             </form>
             <ChangePassword />
         </div>

@@ -53,9 +53,9 @@ export default function UsersPage() {
               <span>{user.address}</span>
               <span>{user.isAdmin ? '✅' : '❌'}</span>
               <span className={classes.actions}>
-                <Link to={'/admin/editUser/' + user.id}>Edit</Link>
+                <Link to={'/admin/editUser/' + user.id} className={classes.link}>Edit</Link>
                 {auth.user.id !== user.id && (
-                  <Link onClick={() => handleToggleBlock(user.id)}>
+                  <Link onClick={() => handleToggleBlock(user.id)} className={classes.link}>
                     {user.isBlocked ? 'Unblock' : 'Block'}
                   </Link>
                 )}

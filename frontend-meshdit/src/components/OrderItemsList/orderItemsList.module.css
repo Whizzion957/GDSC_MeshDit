@@ -1,6 +1,6 @@
 .table {
     width: 100%;
-    border: 1px solid #eeeeee;
+    border: 1px solid #ffd1b3;
     margin-top: 1rem;
     border-radius: 5px;
     padding: 0.5rem 1rem;
@@ -8,6 +8,7 @@
 
 .table td {
     height: 3rem;
+    color: darkred;
 }
 
 .table td img {
@@ -15,15 +16,21 @@
     height: 3rem;
     object-fit: cover;
     border-radius: 100rem;
+    transition: transform 0.2s ease;
+}
+
+.table td img:hover {
+    transform: scale(1.03);
 }
 
 .table h3 {
     margin-top: 0.5rem;
     margin-left: 0.3rem;
-    color: grey;
+    color: darkred;
 }
 
 .table a:hover {
     opacity: 0.9;
 }
+
 

@@ -13,7 +13,8 @@ export default function Header() {
     <header className={classes.header}>
         <div className={classes.container}>
             <Link to="/" className={classes.logo}>
-                FoodFat!
+                <img src='/mainlogo.png' alt='logo'/>
+                FoodFat!!
             </Link>
             <nav>
                 <ul>
@@ -21,6 +22,7 @@ export default function Header() {
                         (<li className={classes.menu_container}>
                             <Link to="/dashboard">{user.name}</Link>
                             <div className={classes.menu}>
+                                <Link to="/dashboard">Dashboard</Link>
                                 <Link to="/profile">Profile</Link>
                                 <Link to="/orders">Orders</Link>
                                 <a onClick={logout}>Logout</a>

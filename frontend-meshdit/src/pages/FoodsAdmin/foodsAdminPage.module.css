@@ -12,15 +12,16 @@
   
   a.add_food {
     display: inline-block;
-    background: darkred;
+    background: linear-gradient(180deg, #ff7e5f, #d94e4e);
     color: white;
     padding: 0.7rem;
     margin: 0.8rem 0;
     border-radius: 1.5rem;
+    transition: transform 0.3s ease;
   }
   
   a.add_food:hover {
-    opacity: 0.9;
+    transform: scale(1.03);
   }
   
   .list_item {
@@ -34,6 +35,7 @@
     height: 5rem;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid #ffd1b3;
   }
   
   .list_item img {
@@ -42,9 +44,23 @@
     border-radius: 100rem;
     object-fit: cover;
   }
+
+  .link {
+    color: darkred;
+    transition: color 0.3s ease;
+  }
+
+  .link:hover {
+    color: #e72929;
+  }
   
   .actions > a {
     margin-right: 1rem;
-    color: darkblue;
+    color: #e72929;
     cursor: pointer;
+    transition: color 0.5s ease;
+  }
+
+  .actions > a:hover {
+    color: darkred;
   }

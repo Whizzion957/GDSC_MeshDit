@@ -1,28 +1,56 @@
 .header {
-    background: white;
+    background: linear-gradient(180deg, #ff7e5f 0%, rgb(255, 255, 255) 100%);
     padding: 0;
-    border-bottom: 1px solid #e72929;
 }
 
 .header a {
-    color: #af1313;
+    color: #922b21;
+    position: relative; 
+    transition: color 0.3s ease;
+}
+
+.header a::before {
+    content: ''; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #af1313;
+    transform: scaleX(0); 
+    transform-origin: bottom right;
+    transition: transform 0.3s ease; 
 }
 
 .header a:hover {
-    background: #e72929;
     color: white;
-    cursor: pointer;
+}
+
+.header a:hover::before {
+    transform: scaleX(1); 
+    transform-origin: bottom left;
 }
 
 .container {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-    font-weight: bold;
+    font-weight: 800;
     padding: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+}
+
+.logo img {
+    border-radius: 100px;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
 }
 
 .header ul {
@@ -31,9 +59,33 @@
     margin: 0;
 }
 
-.header ul a{
+.header ul a {
     padding: 1rem;
     display: inline-block;
+    position: relative; 
+    transition: color 0.3s ease; 
+}
+
+.header ul a::before {
+    content: ''; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #af1313;
+    transform: scaleX(0); 
+    transform-origin: bottom right;
+    transition: transform 0.3s ease; 
+}
+
+.header ul a:hover {
+    color: white;
+}
+
+.header ul a:hover::before {
+    transform: scaleX(1); 
+    transform-origin: bottom left;
 }
 
 .menu_container {
@@ -45,21 +97,39 @@
     z-index: 1001;
     background-color: whitesmoke;
     display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease; 
 }
 
 .menu_container:hover .menu {
     display: block;
+    opacity: 1;
 }
 
 .menu a {
     width: 100%;
     min-width: 8rem;
+    display: block;
+    padding: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #e72929;
+    color: white;
+    cursor: pointer;
 }
 
 .cart_count {
-    background-color: #ff4d4d;
+    background: linear-gradient(180deg, #ff4d4d, #ff7f7f);
     color: white;
     padding: 0.1rem 0.45rem;
     border-radius: 100rem;
     font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cart_count:hover {
+    background-color: #e72929;
+    cursor: pointer;
 }

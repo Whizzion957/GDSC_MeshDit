@@ -7,16 +7,16 @@
     padding: 0;
 }
 
-.list  li a {
+.list li a {
     height: 22.5rem;
     width: 20rem;
-    border: 1px solid whitesmoke;
+    border: 1px solid #ffd1b3;
     border-radius: 1rem;
     margin: 0.5rem;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    color: #e72929;
+    color: #d94e4e;
 }
 
 .image {
@@ -29,17 +29,19 @@
     padding: 0.5rem 0.1rem;
     position: relative;
     height: 7rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
 }
 
 .favourite {
     position: absolute;
     top: 0.5rem;
-    right: 1rem;
+    right: 0.7rem;
     font-size: 1.2rem;
 }
 
 .favourite.not {
-    color: grey;
+    color: #b0b0b0;
 }
 
 .stars {
@@ -54,10 +56,10 @@
 
 .origins span {
     border-radius: 2rem;
-    background-color: whitesmoke;
+    background-color: #ffd1b3;
     display: inline-block;
     font-size: 0.8rem;
-    color: grey;
+    color: #6b6b6b;
     margin-right: 0.3rem;
     padding: 0 0.5rem;
     margin-top: 0.2rem;
@@ -76,10 +78,11 @@
 .price {
     position: absolute;
     bottom: 0;
-    left: 0.9rem;
-    background-color: white;
+    left: 0.3rem;
+    background-color: #fff;
     padding: 0.3rem 100% 0 0;
-    color: #414141;
+    color: rgb(61, 160, 61);
+    font-weight: 600;
     margin-top: 0.7rem;
     font-size: 1.1rem;
 }

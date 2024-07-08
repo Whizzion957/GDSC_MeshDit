@@ -78,7 +78,7 @@ export default function OrdersPage() {
                 </div>
                 <div className={classes.footer}>
                     <div>
-                        <Link to={`/track/${order.id}`}>Show Order</Link>
+                        <Link to={`/track/${order.id}`} className={classes.showorder}>Show Order</Link>
                     </div>
                     <div>
                         <span className={classes.price}>
