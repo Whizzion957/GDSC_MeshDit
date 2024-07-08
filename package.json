@@ -1,0 +1,14 @@
+{
+  "name": "gdsc_meshdit",
+  "version": "1.0.0",
+  "description": "//Hello",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd frontend-meshdit && npm run build",
+    "postbuild": "move /Y frontend-meshdit/build backend-meshdit/src/public",
+    "start": "cd backend-meshdit && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
