@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "cd backend-meshdit && npm install & cd frontend-meshdit && npm install",
     "build": "cd frontend-meshdit && npm run build",
-    "postbuild": "move /Y frontend-meshdit/build backend-meshdit/src/public",
+    "postbuild": "mv -f frontend-meshdit/build backend-meshdit/src/public",
     "start": "cd backend-meshdit && npm start"
   },
   "keywords": [],
